@@ -13,9 +13,10 @@
 
 ## 🚀 Roadmap & Features in Development
 
-- [ ] **Download project as ZIP**: Export your work with ease.
+- [ ] **Pages Support**: Support for cloudflare page (working).
+- [ ] **Download project as ZIP**: Export your work with ease (working).
 - [ ] **AI thinking capabilities**: Enhance decision-making and problem-solving during development.
-- [ ] **Support for multiple AI providers**: OpenAI, DeepSeek, and Groq integrations.
+- [ ] **Support for multiple AI providers**: OpenAI, DeepSeek, and Groq integrations (working).
 - [ ] **Persistent chat history**: Remember conversations and context for better continuity.
 - [ ] **Codespace VM-based previews**: Use Codespaces for enhanced project previews.
 - [ ] **Prompt enhancements**: Smarter and more intuitive prompts.
@@ -40,7 +41,7 @@ Before you get started, make sure you have the following installed:
 1. Clone the repository and navigate to the project folder:
 
    ```bash
-   git clone <repo-url>
+   git clone https://github.com/4thweb/openaura.git
    cd aura
    ```
 
