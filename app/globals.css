@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hide scrollbar for all elements */
+* {
+  /* For Firefox */
+  scrollbar-width: none;
+  
+  /* For Chrome, Safari, and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* For Internet Explorer and Edge */
+* {
+  -ms-overflow-style: none;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes aurora {
+  0% {
+    transform: translateY(-30%) translateY(0%);
+  }
+  50% {
+    transform: translateY(30%) translateY(-10%);
+  }
+  100% {
+    transform: translateY(-30%) translateY(0%);
+  }
+}
+
+@keyframes aurora-reverse {
+  0% {
+    transform: translateY(30%) translateY(10%);
+  }
+  50% {
+    transform: translateY(-30%) translateY(0%);
+  }
+  100% {
+    transform: translateY(30%) translateY(10%);
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle infinite ease-in-out;
+}
+
+.animate-aurora {
+  animation: aurora 8s ease-in-out infinite;
+}
+
+.animate-aurora-reverse {
+  animation: aurora-reverse 10s ease-in-out infinite;
+}
+
+img {
+  border: transparent;
+  border-radius: 8px;
+}
+
+pre {
+  background: #000 !important;
+}
