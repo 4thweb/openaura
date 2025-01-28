@@ -6,6 +6,8 @@ import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import SYSTEM_PROMPT from '@/constants/systemPrompt';
 import otherTools, { OTHER_SYSYTEMMESSAGE } from '@/tools/other';
 
+export const runtime = 'edge';
+
 const getNodeByPath = (fileSystem, path) => {
   // Remove the leading slash if present
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;

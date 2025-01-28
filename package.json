@@ -6,10 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.1.5",
+    "@cloudflare/next-on-pages": "^1.13.7",
     "@codesandbox/sandpack-react": "^2.19.10",
     "@tailwindcss/typography": "^0.5.16",
     "ai": "^4.1.9",
