@@ -1,126 +1,80 @@
 # Aura
 
-## Overview
-Aura is an innovative open-source AI agent that democratizes web development, making it accessible to developers of all skill levels. By combining modern web technologies with natural language processing, Aura transforms ideas into functional web applications through simple conversation.
+**Aura** is an innovative, open-source AI agent designed to revolutionize web development. By leveraging the power of AI, Aura makes building websites accessible and intuitive for developers of all skill levels. While Aura currently uses **Google Gemini**, it is flexible and supports other models compatible with the **Vercel AI SDK**.
 
-## Core Philosophy
-Our mission is to break down the barriers to web development, enabling everyone from beginners to experienced developers to bring their ideas to life quickly and efficiently. Aura handles the technical complexities, allowing you to focus on creativity and problem-solving.
+---
 
-## Technical Foundation
+## ✨ Features
 
-### Frontend Technologies
-- **React 17+**: Modern component-based architecture for building dynamic user interfaces
-- **Tailwind CSS**: Utility-first CSS framework for rapid styling and consistent design
-- **React Hooks**: Built-in state management and side effects handling
-- **Responsive Design**: Mobile-first approach ensuring compatibility across all devices
+- **AI-powered frontend web app builder**: Create React-based web applications directly in your browser.
+- **Flexible model support**: Swap out AI models easily based on your needs.
+- **Open-source innovation**: Fully customizable to fit your development style.
 
-### Development Features
-- **Automated Setup**: Instant project scaffolding with all necessary dependencies
-- **Component Generation**: Smart generation of reusable React components
-- **State Management**: Intelligent implementation of React hooks and context
-- **Code Quality**: Generated code follows best practices and modern conventions
+---
 
-## Getting Started
+## 🚀 Roadmap & Features in Development
 
-### Basic Usage
-Simply describe your desired application in natural language. For example:
+- [ ] **Download project as ZIP**: Export your work with ease.
+- [ ] **AI thinking capabilities**: Enhance decision-making and problem-solving during development.
+- [ ] **Support for multiple AI providers**: OpenAI, DeepSeek, and Groq integrations.
+- [ ] **Persistent chat history**: Remember conversations and context for better continuity.
+- [ ] **Codespace VM-based previews**: Use Codespaces for enhanced project previews.
+- [ ] **Prompt enhancements**: Smarter and more intuitive prompts.
+- [ ] **Git integration**: Push, pull, and manage code directly.
+- [ ] **Error detection in previews**: Spot and debug issues instantly.
+- [ ] **Deploy buttons**: One-click deployment to popular hosting platforms.
+- [ ] **Image-to-website**: Transform design ideas into fully functional web pages.
 
-```
-Make a simple calculator app
-```
+---
 
-### Advanced Features
-- **Component Customization**: Fine-tune generated components with specific requirements
-- **Style Modifications**: Adjust Tailwind classes and styling parameters
-- **State Management**: Configure complex state interactions and data flow
+## 🛠 Prerequisites
 
-## Current Capabilities
+Before you get started, make sure you have the following installed:
 
-### Component Generation
-- Functional React components with hooks
-- Form handling and validation
-- Data visualization components
-- Navigation and routing setup
-- Modal and dialog systems
+- **Node.js** (latest LTS version recommended)
+- **PNPM** (used as the package manager)
 
-### Styling Systems
-- Responsive layouts
-- Dark/light mode support
-- Custom color schemes
-- Animation integration
-- Accessibility compliance
-- Component variants
+---
 
-## Roadmap
+## 📦 Getting Started
 
-### Short-term Goals
-- Enhanced chat interface with context awareness
-- Expanded component library
-- Better error handling and debugging support
-- Improved code generation accuracy
+1. Clone the repository and navigate to the project folder:
 
-### Long-term Vision
-- **AI-Powered Features**
-  - Code optimization suggestions
-  - Performance analytics
-  - Automated testing generation
-  - Security vulnerability detection
+   ```bash
+   git clone <repo-url>
+   cd aura
+   ```
 
-- **Developer Experience**
-  - Interactive component playground
-  - Visual editing capabilities
-  - Real-time collaboration tools
-  - Version control integration
+2. Install PNPM globally (if not already installed):
 
-- **Extended Capabilities**
-  - Backend service generation
-  - Database schema design
-  - API documentation generation
-  - Deployment automation
+   ```bash
+   npm install -g pnpm
+   ```
 
-## Contributing
-We welcome contributions from developers of all experience levels. Here's how you can help:
+3. Install project dependencies:
 
-1. **Code Contributions**
-   - Bug fixes
-   - Feature implementations
-   - Performance improvements
-   - Documentation updates
+   ```bash
+   pnpm install
+   ```
 
-2. **Community Support**
-   - Issue reporting
-   - Feature requests
-   - Documentation improvements
-   - Community discussions
+4. Build the project:
 
-## About the Creator
-Aura is developed by Amarnath (cosmic), a developer from Kerala, India. Connect with him:
-- Twitter/X: [@cxsmicguy](https://x.com/cxsmicguy)
-- Instagram: [@cxsmicguy](https://instagram.com/cxsmicguy)
-- GitHub: [@cxsmicguyx](https://github.com/cxsmicguyx)
+   ```bash
+   pnpm run build
+   ```
 
-## License
-MIT License
+5. Run the development server:
 
-Copyright (c) 2024 Amarnath P
+   ```bash
+   pnpm run dev
+   ```
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+---
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## 💡 Contributing
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+We welcome contributions! If you have ideas or improvements, feel free to submit a pull request or open an issue.
 
+---
 
-Built with 💫 by cosmic
+This refined version includes clearer language, better formatting, and a professional tone to improve readability and usability.
