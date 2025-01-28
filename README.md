@@ -1,13 +1,12 @@
 # Aura
 
-**Aura** is an innovative, open-source AI agent designed to revolutionize web development. By leveraging the power of AI, Aura makes building websites accessible and intuitive for developers of all skill levels. While Aura currently uses **Google Gemini**, it is flexible and supports other models compatible with the **Vercel AI SDK**.
+**Aura** is an innovative, open-source AI agent designed to revolutionize web development. By leveraging the power of AI, Aura makes building websites accessible and intuitive for developers of all skill levels. While Aura currently uses **Google Gemini**, you can customize it to use other models compatible with the **Vercel AI SDK**.
 
 ---
 
 ## ✨ Features
 
 - **AI-powered frontend web app builder**: Create React-based web applications directly in your browser.
-- **Flexible model support**: Swap out AI models easily based on your needs.
 - **Open-source innovation**: Fully customizable to fit your development style.
 
 ---
