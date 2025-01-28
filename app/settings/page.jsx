@@ -9,7 +9,6 @@ import { Loader } from 'lucide-react';
 export default function SettingsPage() {
   const router = useRouter();
   const [googleApiKey, setGoogleApiKey] = useState('');
-  const [isGoogleFromCode, setIsGoogleFromCode] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [feedbackMessage, setFeedbackMessage] = useState(null);
 
@@ -47,13 +46,7 @@ export default function SettingsPage() {
 
   // Handle input change with code checking
   const handleInputChange = (value) => {
-    if (value === apiKeyMapping.code) {
-      setGoogleApiKey(apiKeyMapping.key);
-      setIsGoogleFromCode(true);
-    } else {
-      setGoogleApiKey(value);
-      setIsGoogleFromCode(false);
-    }
+    setGoogleApiKey(value);
   };
 
   // Save settings to both cookie and Firestore
@@ -69,19 +62,16 @@ export default function SettingsPage() {
 
     try {
       // Set cookie with expiration
-      const oneDayExpiry = new Date(Date.now() + 3 * 60 * 60 * 1000); // 3 hours
       const thirtyDaysExpiry = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000); // 30 days
 
       setCookie('googleApiKey', googleApiKey, {
-        expires: isGoogleFromCode ? oneDayExpiry : thirtyDaysExpiry,
+        expires: thirtyDaysExpiry,
       });
 
       // Success feedback
       setFeedbackMessage({
         type: 'success',
-        message: isGoogleFromCode 
-          ? 'Temporary API key saved for 3 hours' 
-          : 'API key saved successfully'
+        message: 'API key saved successfully'
       });
     } catch (error) {
       console.error('Error saving settings:', error);
@@ -104,7 +94,7 @@ export default function SettingsPage() {
     <div className="min-h-screen text-gray-200 flex flex-col">
       {/* Feedback Alert */}
       {feedbackMessage && (
-        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md">
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md">
           <div 
             className={`
               p-4 rounded-lg shadow-md flex items-center 
@@ -146,9 +136,6 @@ export default function SettingsPage() {
               className="block text-sm font-medium text-gray-400 mb-2"
             >
               Google API Key
-              {isGoogleFromCode && (
-                <span className="text-xs text-yellow-400 ml-2">(3h validity)</span>
-              )}
             </label>
             <input
               type="text"

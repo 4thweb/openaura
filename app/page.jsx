@@ -110,6 +110,8 @@ export default function Chat() {
     if (cookieKey) {
       setIsCookiePresent(!!cookieKey);
       setLoading(false)
+    } else {
+      router.push("/settings")
     }
   }, []);
 
