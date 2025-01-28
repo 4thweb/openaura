@@ -40,7 +40,7 @@ Before you get started, make sure you have the following installed:
 1. Clone the repository and navigate to the project folder:
 
    ```bash
-   git clone <repo-url>
+   git clone https://github.com/4thweb/openaura.git
    cd aura
    ```
 
@@ -67,6 +67,8 @@ Before you get started, make sure you have the following installed:
    ```bash
    pnpm run dev
    ```
+
+For running this on cloudflare you need to add nodejs_compact in the settings.
 
 ---
 
