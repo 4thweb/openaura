@@ -27,6 +27,12 @@
 
 ---
 
+## 🐞 Bugs
+
+- **Preview**: The preview initially displays "Hello, World!" You can close it and reopen it from the file manager to view it again.
+
+---
+
 ## 🛠 Prerequisites
 
 Before you get started, make sure you have the following installed:
