@@ -227,7 +227,7 @@ export default function Chat() {
         <div className={`fixed bottom-0 left-0 w-full pb-4 pt-4 px-6 z-[99] bg-gradient-to-t from-black via-black to-transparent z-[999] ${(isEditorVisible || isPreviewVisible) ? "hidden sm:block sm:w-1/2 2xl:w-2/3" : ""}`}>
           {error ? (
             <div className='w-full p-2 flex flex-col justify-center items-center gap-2 text-red-300'>
-              <div>An error occured</div>
+              <div>An error occurred</div>
               <button type="button" onClick={() => reload()} className='bg-red-300 p-2 px-4 rounded-full flex justify-center items-center gap-2 text-red-900 border border-red-900'>
                 <RefreshCw width={14} />
                 <span>Retry</span>
