@@ -15,8 +15,7 @@
 
 - [ ] **Pages Support**: Support for cloudflare page (working).
 - [ ] **Download project as ZIP**: Export your work with ease (working).
-- [ ] **AI thinking capabilities**: Enhance decision-making and problem-solving during development.
-- [ ] **Support for multiple AI providers**: OpenAI, DeepSeek, and Groq integrations (working).
+- [ ] **AI thinking capabilities**: Enhance decision-making and problem-solving during development (working).
 - [ ] **Persistent chat history**: Remember conversations and context for better continuity.
 - [ ] **Codespace VM-based previews**: Use Codespaces for enhanced project previews.
 - [ ] **Prompt enhancements**: Smarter and more intuitive prompts.
@@ -27,9 +26,13 @@
 
 ---
 
-## 🐞 Bugs
+## 🪲 Bugs
 
-- **Preview**: The preview initially displays "Hello, World!" You can close it and reopen it from the file manager to view it again.
+- **Preview**: The preview initially displays "Hello, World!" You can close it and reopen it from the file manager to view it again (fixed).
+
+Currently, the only known issue is the timeout limitation, which is dependent on the service provider. I recommend setting it to at least 60 seconds; otherwise, the system may not function properly. Additionally, occasional message breaks may occur due to Gemini 2.0 Flash being experimental and subject to high load.
+
+If you encounter any other issues, please report them.
 
 ---
 
