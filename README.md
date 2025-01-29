@@ -80,7 +80,3 @@ Before you get started, make sure you have the following installed:
 ## 💡 Contributing
 
 We welcome contributions! If you have ideas or improvements, feel free to submit a pull request or open an issue.
-
----
-
-This refined version includes clearer language, better formatting, and a professional tone to improve readability and usability.
