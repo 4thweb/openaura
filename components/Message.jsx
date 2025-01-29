@@ -70,7 +70,6 @@ const Message = ({ message }) => {
                         child.props.className === 'language-jsx'
                       );
 
-                    console.log(children, code)
                     return code ? (
                       <CodeBlock
                         language={language}

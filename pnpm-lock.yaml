@@ -11,6 +11,9 @@ importers:
       '@ai-sdk/google':
         specifier: ^1.1.5
         version: 1.1.5(zod@3.24.1)
+      '@ai-sdk/groq':
+        specifier: ^1.1.6
+        version: 1.1.6(zod@3.24.1)
       '@codesandbox/sandpack-react':
         specifier: ^2.19.10
         version: 2.19.10(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -59,6 +62,12 @@ packages:
 
   '@ai-sdk/google@1.1.5':
     resolution: {integrity: sha512-hj3v7xi0Gq0KXy1w0hdm+VsNJ9HPdtJ2rEpAjy/sbhY9QTkPdoSBKgRs89Jq5ivQQnnoHumq1Q8RZW/WQq3ZKQ==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.0.0
+
+  '@ai-sdk/groq@1.1.6':
+    resolution: {integrity: sha512-mijMsf9St0f0GoXc+/KWTnHiGI6Ufqex+IbkJB/1Se3QNN/COtoc+Vt8EqHxlyI9LPgvxkl1t42TEyYlTCjGuw==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.0.0
@@ -1330,6 +1339,12 @@ packages:
 snapshots:
 
   '@ai-sdk/google@1.1.5(zod@3.24.1)':
+    dependencies:
+      '@ai-sdk/provider': 1.0.6
+      '@ai-sdk/provider-utils': 2.1.5(zod@3.24.1)
+      zod: 3.24.1
+
+  '@ai-sdk/groq@1.1.6(zod@3.24.1)':
     dependencies:
       '@ai-sdk/provider': 1.0.6
       '@ai-sdk/provider-utils': 2.1.5(zod@3.24.1)

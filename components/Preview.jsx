@@ -1,43 +1,60 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SandpackLayout, SandpackPreview, SandpackProvider } from "@codesandbox/sandpack-react";
+import { convertFiles, getFolder } from '@/utils/preview';
 
-// Function to generate a random alphanumeric string of 200 characters
-const generateRandomKey = () => {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let randomKey = '';
-  for (let i = 0; i < 1000; i++) {
-    randomKey += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return randomKey;
-};
+function Preview({ fileSystem, folder }) {
+  const [files, setFiles] = useState({});
+  const [showSandpack, setShowSandpack] = useState(false);
 
-function Preview({ files = {} }) {
-  console.log(files)
+  useEffect(() => {
+    const filesData = getFolder(fileSystem, folder);
+    const dataFiles = convertFiles(filesData);
+
+    // console.log("FOLDR: ", folder)
+    // console.log("FISYS: ", fileSystem)
+    // console.log("FILES: ", filesData)
+    // console.log("DAFIL: ", dataFiles)
+
+    setFiles(dataFiles);
+    setShowSandpack(Object.keys(dataFiles).length > 0);
+  }, [folder, fileSystem]);
+
+  useEffect(() => {
+    setShowSandpack(Object.keys(files).length > 0);
+  }, [files]);
   
   return (
-    <SandpackProvider
-      key={generateRandomKey()}  // Generate random 200 character key
-      theme="dark"
-      className="h-svh w-full [&_.sp-preview-container]:flex [&_.sp-preview-container]:h-full [&_.sp-preview-container]:w-full [&_.sp-preview-container]:grow [&_.sp-preview-container]:flex-col [&_.sp-preview-container]:justify-center [&_.sp-preview-iframe]:grow"
-      files={files}
-      options={{
-        externalResources: [
-          "https://unpkg.com/@tailwindcss/ui/dist/tailwind-ui.min.css",
-        ],
-      }}>
-      <SandpackLayout>
-        <div id="root"></div>
-      </SandpackLayout>
-      <SandpackPreview
-        showNavigator={false}
-        showOpenInCodeSandbox={true}
-        showRefreshButton={true}
-        showRestartButton={true}
-        showOpenNewtab={false}
-        className="h-svh w-full"
-      />
-    </SandpackProvider>
+    <>
+    {showSandpack ? (
+      <SandpackProvider
+        id="key000001111111111"
+        theme="dark"
+        className="h-svh w-full [&_.sp-preview-container]:flex [&_.sp-preview-container]:h-full [&_.sp-preview-container]:w-full [&_.sp-preview-container]:grow [&_.sp-preview-container]:flex-col [&_.sp-preview-container]:justify-center [&_.sp-preview-iframe]:grow"
+        files={files}
+        options={{
+          externalResources: [
+            "https://unpkg.com/@tailwindcss/ui/dist/tailwind-ui.min.css",
+          ],
+        }}>
+        <SandpackLayout>
+          <div id="root"></div>
+        </SandpackLayout>
+        <SandpackPreview
+          showNavigator={false}
+          showOpenInCodeSandbox={true}
+          showRefreshButton={true}
+          showRestartButton={true}
+          showOpenNewtab={false}
+          className="h-svh w-full"
+        />
+      </SandpackProvider>
+    ) : (
+      <div className="flex items-center justify-center h-svh">
+        <p>Loading...</p>
+      </div>
+    )}
+    </>
   );
 }
 

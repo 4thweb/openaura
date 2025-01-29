@@ -128,8 +128,8 @@ export default function SettingsPage() {
       </div>
 
       {/* Settings Form */}
-      <div className="flex-grow p-6 w-full max-w-2xl mx-auto">
-        <div className="shadow-lg rounded-xl p-8 bg-neutral-900/30 border border-white/20 text-gray-300">
+      <div className="flex-grow p-4 w-full max-w-2xl mx-auto">
+        <div className="py-8">
           <div className="mb-6">
             <label
               htmlFor="googleApiKey"

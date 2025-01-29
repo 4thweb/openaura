@@ -7,7 +7,6 @@ import { Folder, FolderOpen, X, RefreshCw, Settings } from 'lucide-react';
 import execute from '@/utils/toolCall';
 import Message from '@/components/Message';
 import { smoothStream } from 'ai';
-import { convertFiles, getFolder } from '@/utils/preview';
 import Preview from '@/components/Preview';
 import { useRouter } from 'next/navigation';
 import ChatInputForm from '@/components/ChatInputForm';
@@ -19,11 +18,9 @@ export default function Chat() {
   const messagesEndRef = useRef(null);
   const env = useEnvironment('chat-session');
   const [fileSystem, setFileSystem] = useState({});
-  const [previewFileSystem, setPreviewFileSystem] = useState({});
   const [isEditorVisible, setIsEditorVisible] = useState(false);
   const [isPreviewVisible, setIsPreviewVisible] = useState(false);
-  const [dataFiles, setDataFiles] = useState({});
-  const [dataFolder, setDataFolder] = useState("");
+  const [previewFolder, setPreviewFolder] = useState("");
   const [loading, setLoading] = useState(true);
 
   // Check for the required cookie
@@ -40,20 +37,12 @@ export default function Chat() {
   };
 
   const reloadPreview = async () => {
-    const files = getFolder(previewFileSystem, dataFolder);
-    const dataFiles = convertFiles(files);
-    console.log(dataFiles, dataFolder, files, previewFileSystem);
-    setDataFiles(dataFiles);
+    return 0;
   };
 
   const setPreview = (folder) => {
-    const files = getFolder(previewFileSystem, folder);
-    const dataFiles = convertFiles(files);
-    setDataFolder(folder);
-    setDataFiles(dataFiles);
-    setTimeout(() => {
-      togglePreview(true);
-    }, 500)
+    setPreviewFolder(folder);
+    togglePreview(true);
   };
 
   const getFileSystemState = async () => {
@@ -74,10 +63,9 @@ export default function Chat() {
       if (toolName === "preview") {
         const newFileSystem = await getFileSystemState();
         setFileSystem(newFileSystem);
-        setPreviewFileSystem(newFileSystem);
 
         let folder = args.folder;
-        setDataFolder(folder);
+        setPreviewFolder(folder);
         setPreview(folder);
         return;
       }
@@ -91,7 +79,6 @@ export default function Chat() {
 
       const newFileSystem = await getFileSystemState();
       setFileSystem(newFileSystem);
-      setPreviewFileSystem(newFileSystem);
 
       return result;
     },
@@ -113,10 +100,6 @@ export default function Chat() {
     } else {
       router.push("/settings")
     }
-  }, []);
-
-  useEffect(() => {
-    getFileSystemState().then(setPreviewFileSystem);
   }, []);
 
   const handleSubmitWithFS = async (e) => {
@@ -272,7 +255,7 @@ export default function Chat() {
             </div>
           </div>
           <div className='flex-grow overflow-auto'>
-            <Preview files={dataFiles} />
+            <Preview fileSystem={fileSystem} folder={previewFolder} />
           </div>
         </div>
       )}

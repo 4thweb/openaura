@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ai-sdk/google": "^1.1.5",
+    "@ai-sdk/groq": "^1.1.6",
     "@codesandbox/sandpack-react": "^2.19.10",
     "@tailwindcss/typography": "^0.5.16",
     "ai": "^4.1.9",

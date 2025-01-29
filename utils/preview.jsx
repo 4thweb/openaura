@@ -31,6 +31,11 @@ function convertFiles(fileSystem) {
 }
 
 function getFolder(fileSystem, folderName) {
+  // Remove leading slash if present
+  if (folderName.startsWith("/")) {
+    folderName = folderName.slice(1);
+  }
+
   // Only proceed if fileSystem has contents
   if (!fileSystem || !fileSystem.contents) return null;
 
