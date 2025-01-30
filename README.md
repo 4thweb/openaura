@@ -15,8 +15,8 @@
 
 - ✅ **Download project as ZIP**: Export your work with ease.
 - ✅ **AI thinking capabilities**: Enhance decision-making and problem-solving during development (now on beta).
+- ✅ **Stock Image**: Ability to use stock images while development (now on beta).
 - ⬜ **Blob storage**: Storing images in file system (working).
-- ⬜ **Stock Image**: Ability to use stock images while development (working).
 - ⬜ **Pages Support**: Support for cloudflare page (working).
 - ⬜ **Persistent chat history**: Remember conversations and context for better continuity.
 - ⬜ **Codespace VM-based previews**: Use Codespaces for enhanced project previews.

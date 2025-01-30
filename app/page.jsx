@@ -60,6 +60,8 @@ export default function Chat() {
       const { toolName, args } = toolCall;
       let result;
 
+      console.log(toolCall)
+
       if (toolName === "preview") {
         const newFileSystem = await getFileSystemState();
         setFileSystem(newFileSystem);
@@ -240,12 +242,12 @@ export default function Chat() {
           <div className="flex justify-between items-center px-4 py-2 h-10 block bg-gray-500/30 text-sm border-b border-gray-700 flex items-center gap-2">
             <b>PREVIEW</b>
             <div className='flex justify-end items-center gap-2'>
-              <button
+              {/* <button
                 onClick={reloadPreview}
                 className="text-white focus:outline-none p-1 flex items-center justify-center"
               >
                 <RefreshCw size={14} />
-              </button>
+              </button> */}
               <button
                 onClick={() => togglePreview(false)}
                 className="text-white focus:outline-none p-1 pr-4 flex-grow flex items-center justify-end"

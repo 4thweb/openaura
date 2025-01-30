@@ -96,8 +96,9 @@ export async function POST(req) {
 
     const googleApiKey = cookieStore.get("googleApiKey")?.value
     const groqApiKey = cookieStore.get("groqApiKey")?.value
+    const pexelsApiKey = cookieStore.get("pexelsApiKey")?.value
     
-    if (!googleApiKey && !groqApiKey) {
+    if (!googleApiKey && !groqApiKey && !pexelsApiKey) {
       return new Response("error");
     }
 
@@ -122,7 +123,7 @@ export async function POST(req) {
       tools: {
         ...fileTools,
         ...aiTools(groq),
-        ...otherTools,
+        ...otherTools(pexelsApiKey),
         readPath: tool({
           description: 'Read the entire file system or specific path',
           parameters: z.object({

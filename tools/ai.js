@@ -19,10 +19,15 @@ const aiTools = (groq, modelName = 'deepseek-r1-distill-llama-70b') => {
 
           const result = await generateText({
             model: enhancedModel,
+            // system: `
+            // ----
+            // SYSTEM PROMPTS
+            // ----
+
+            // - You can use "searchPexels" tool to get stock images give gueries as needed.
+            // `,
             prompt,
           });
-
-          console.log(result)
 
           return result;
         } catch (error) {

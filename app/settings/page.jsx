@@ -10,6 +10,7 @@ export default function SettingsPage() {
   const router = useRouter();
   const [googleApiKey, setGoogleApiKey] = useState('');
   const [groqApiKey, setGroqApiKey] = useState('');
+  const [pexelsApiKey, setPexelsApiKey] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [feedbackMessage, setFeedbackMessage] = useState(null);
 
@@ -29,11 +30,16 @@ export default function SettingsPage() {
       try {        
         const cookieGoogleKey = getCookie('googleApiKey') || '';
         const cookieGroqKey = getCookie('groqApiKey') || '';
+        const cookiePexelsKey = getCookie('pexelsApiKey') || '';
+        
         if (cookieGoogleKey) {
           setGoogleApiKey(cookieGoogleKey);
         }
         if (cookieGroqKey) {
           setGroqApiKey(cookieGroqKey);
+        }
+        if (cookiePexelsKey) {
+          setPexelsApiKey(cookiePexelsKey);
         }
       } catch (error) {
         console.error('Error loading settings:', error);
@@ -57,7 +63,7 @@ export default function SettingsPage() {
   // Save settings to both cookie and Firestore
   const saveCookies = async () => {
     // Validate input
-    if (!googleApiKey.trim() || !groqApiKey.trim()) {
+    if (!googleApiKey.trim() || !groqApiKey.trim() || !pexelsApiKey.trim()) {
       setFeedbackMessage({
         type: 'error',
         message: 'Please enter valid API keys'
@@ -73,6 +79,9 @@ export default function SettingsPage() {
         expires: thirtyDaysExpiry,
       });
       setCookie('groqApiKey', groqApiKey, {
+        expires: thirtyDaysExpiry,
+      });
+      setCookie('pexelsApiKey', pexelsApiKey, {
         expires: thirtyDaysExpiry,
       });
 
@@ -169,6 +178,23 @@ export default function SettingsPage() {
               onChange={(e) => handleInputChange(e.target.value, setGroqApiKey)}
               className="block w-full px-4 py-3 bg-neutral-700/50 border border-gray-600 text-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition sm:text-sm"
               placeholder="Enter Groq API Key"
+            />
+          </div>
+
+          <div className="mb-6">
+            <label
+              htmlFor="pexelsApiKey"
+              className="block text-sm font-medium text-gray-400 mb-2"
+            >
+              Pexels API Key
+            </label>
+            <input
+              type="text"
+              id="pexelsApiKey"
+              value={pexelsApiKey}
+              onChange={(e) => handleInputChange(e.target.value, setPexelsApiKey)}
+              className="block w-full px-4 py-3 bg-neutral-700/50 border border-gray-600 text-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition sm:text-sm"
+              placeholder="Enter Pexels API Key"
             />
           </div>
 
