@@ -1,4 +1,5 @@
 "use client";
+import JSZip from 'jszip';
 import { useState, useEffect } from 'react';
 
 const useEnviroment = (id) => {
@@ -73,6 +74,38 @@ const useEnviroment = (id) => {
       description: node.description,
       content: node.content
     };
+  };
+
+  const download = async (path) => {
+    if (typeof window === 'undefined') return false; // Ensure client-side execution
+
+    const node = getNodeByPath(path);
+    if (!node || node.type !== 'folder') return false;
+  
+    const zip = new JSZip();
+  
+    const addToZip = (zipFolder, folderNode) => {
+      Object.entries(folderNode.children).forEach(([name, child]) => {
+        if (child.type === 'file') {
+          zipFolder.file(name, child.content || '');
+        } else if (child.type === 'folder') {
+          const newFolder = zipFolder.folder(name);
+          addToZip(newFolder, child);
+        }
+      });
+    };
+  
+    addToZip(zip, node);
+  
+    const zipBlob = await zip.generateAsync({ type: 'blob' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(zipBlob);
+    link.download = `${path.replace(/\//g, '_') || 'folder'}.zip`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  
+    return true;
   };
 
   const readAll = (path) => {
@@ -197,7 +230,8 @@ const useEnviroment = (id) => {
     move,
     remove,
     edit,
-    readAll
+    readAll,
+    download
   };
 };
 

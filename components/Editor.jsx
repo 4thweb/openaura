@@ -15,6 +15,7 @@ import "prismjs/components/prism-markdown"
 import { Play } from "lucide-react"
 import { useMediaQuery } from "react-responsive"
 import { Copy, Check } from 'lucide-react';
+import { ArrowDownToLine } from "lucide-react"
 
 const Editor = ({ env, toggleEditor, setPreview }) => {
   const [copied, setCopied] = useState(false);
@@ -238,6 +239,15 @@ const Editor = ({ env, toggleEditor, setPreview }) => {
                       className="px-1 hover:bg-gray-600 rounded"
                     >
                       <FolderPlus size={14} />
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        env.download(fullPath)
+                      }}
+                      className="px-1 hover:bg-gray-600 rounded"
+                    >
+                      <ArrowDownToLine size={14} />
                     </button>
                   </div>
                 </div>
