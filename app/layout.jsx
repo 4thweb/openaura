@@ -29,6 +29,7 @@ export default function RootLayout({ children }) {
         <main className="relative z-10 min-h-svh bg-black/20">
           {children}
         </main>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></link>
       </body>
     </html>
   );
