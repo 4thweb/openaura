@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal } from 'lucide-react';
+import { Terminal, Check, Loader2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import CodeBlock from './CodeBlock';
 
@@ -33,9 +33,13 @@ const Message = ({ message }) => {
                 <div className="flex items-center gap-2 text-sm flex-wrap">
                   <Terminal size={14} className="text-blue-400" />
                   <span className="font-mono text-blue-400 break-all">{tool.toolName}</span>
-                  <span className="px-2 py-0.5 rounded-full bg-gray-700/50 text-xs border border-white/10">
-                    {tool.state}
-                  </span>
+                  <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-700/50 text-xs border border-white/10">
+                    {tool.state === "result" ? (
+                      <Check size={12} className="text-green-400" />
+                    ) : (
+                      <Loader2 size={12} className="text-blue-400 animate-spin" />
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

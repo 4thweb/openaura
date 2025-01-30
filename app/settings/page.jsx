@@ -9,6 +9,7 @@ import { Loader } from 'lucide-react';
 export default function SettingsPage() {
   const router = useRouter();
   const [googleApiKey, setGoogleApiKey] = useState('');
+  const [groqApiKey, setGroqApiKey] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [feedbackMessage, setFeedbackMessage] = useState(null);
 
@@ -26,9 +27,13 @@ export default function SettingsPage() {
   useEffect(() => {
     const loadSettings = async () => {
       try {        
-        const cookieKey = getCookie('googleApiKey') || '';
-        if (cookieKey) {
-          setGoogleApiKey(cookieKey);
+        const cookieGoogleKey = getCookie('googleApiKey') || '';
+        const cookieGroqKey = getCookie('groqApiKey') || '';
+        if (cookieGoogleKey) {
+          setGoogleApiKey(cookieGoogleKey);
+        }
+        if (cookieGroqKey) {
+          setGroqApiKey(cookieGroqKey);
         }
       } catch (error) {
         console.error('Error loading settings:', error);
@@ -45,17 +50,17 @@ export default function SettingsPage() {
   }, []);
 
   // Handle input change with code checking
-  const handleInputChange = (value) => {
-    setGoogleApiKey(value);
+  const handleInputChange = (value, setter) => {
+    setter(value);
   };
 
   // Save settings to both cookie and Firestore
   const saveCookies = async () => {
     // Validate input
-    if (!googleApiKey.trim()) {
+    if (!googleApiKey.trim() || !groqApiKey.trim()) {
       setFeedbackMessage({
         type: 'error',
-        message: 'Please enter a valid API key'
+        message: 'Please enter valid API keys'
       });
       return;
     }
@@ -67,11 +72,14 @@ export default function SettingsPage() {
       setCookie('googleApiKey', googleApiKey, {
         expires: thirtyDaysExpiry,
       });
+      setCookie('groqApiKey', groqApiKey, {
+        expires: thirtyDaysExpiry,
+      });
 
       // Success feedback
       setFeedbackMessage({
         type: 'success',
-        message: 'API key saved successfully'
+        message: 'API keys saved successfully'
       });
     } catch (error) {
       console.error('Error saving settings:', error);
@@ -141,9 +149,26 @@ export default function SettingsPage() {
               type="text"
               id="googleApiKey"
               value={googleApiKey}
-              onChange={(e) => handleInputChange(e.target.value)}
+              onChange={(e) => handleInputChange(e.target.value, setGoogleApiKey)}
               className="block w-full px-4 py-3 bg-neutral-700/50 border border-gray-600 text-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition sm:text-sm"
-              placeholder="Enter Google API Key or code"
+              placeholder="Enter Google API Key"
+            />
+          </div>
+
+          <div className="mb-6">
+            <label
+              htmlFor="groqApiKey"
+              className="block text-sm font-medium text-gray-400 mb-2"
+            >
+              Groq API Key
+            </label>
+            <input
+              type="text"
+              id="groqApiKey"
+              value={groqApiKey}
+              onChange={(e) => handleInputChange(e.target.value, setGroqApiKey)}
+              className="block w-full px-4 py-3 bg-neutral-700/50 border border-gray-600 text-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition sm:text-sm"
+              placeholder="Enter Groq API Key"
             />
           </div>
 

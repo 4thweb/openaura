@@ -4,7 +4,9 @@ import fileTools, { FILETOOLS_SYSYTEMMESSAGE } from '@/tools/files';
 import { cookies } from 'next/headers';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import SYSTEM_PROMPT from '@/constants/systemPrompt';
+import { createGroq } from '@ai-sdk/groq';
 import otherTools, { OTHER_SYSYTEMMESSAGE } from '@/tools/other';
+import aiTools, { AITOOLS_SYSTEMMESSAGE } from '@/tools/ai';
 
 const getNodeByPath = (fileSystem, path) => {
   // Remove the leading slash if present
@@ -92,15 +94,20 @@ export async function POST(req) {
     const { messages, fileSystem } = await req.json();
     const cookieStore = await cookies();
 
-    const googleKey = cookieStore.get("googleApiKey")?.value
+    const googleApiKey = cookieStore.get("googleApiKey")?.value
+    const groqApiKey = cookieStore.get("groqApiKey")?.value
     
-    if (!googleKey) {
+    if (!googleApiKey && !groqApiKey) {
       return new Response("error");
     }
 
     const google = createGoogleGenerativeAI({
-      apiKey: googleKey
+      apiKey: googleApiKey
     });
+
+    const groq = createGroq({
+      apiKey: groqApiKey
+    })
 
     const result = streamText({
       model: google('gemini-2.0-flash-exp'),
@@ -109,10 +116,12 @@ export async function POST(req) {
 
       ${[
         FILETOOLS_SYSYTEMMESSAGE,
+        AITOOLS_SYSTEMMESSAGE,
         OTHER_SYSYTEMMESSAGE
       ].join("\n\n")}`,
       tools: {
         ...fileTools,
+        ...aiTools(groq),
         ...otherTools,
         readPath: tool({
           description: 'Read the entire file system or specific path',

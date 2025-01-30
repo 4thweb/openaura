@@ -15,7 +15,7 @@
 
 - [ ] **Pages Support**: Support for cloudflare page (working).
 - [ ] **Download project as ZIP**: Export your work with ease (working).
-- [ ] **AI thinking capabilities**: Enhance decision-making and problem-solving during development (working).
+- [x] **AI thinking capabilities**: Enhance decision-making and problem-solving during development (now on beta).
 - [ ] **Persistent chat history**: Remember conversations and context for better continuity.
 - [ ] **Codespace VM-based previews**: Use Codespaces for enhanced project previews.
 - [ ] **Prompt enhancements**: Smarter and more intuitive prompts.
