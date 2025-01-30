@@ -169,7 +169,7 @@ export default function Chat() {
             <h1 className="text-sm font-bold flex items-center gap-2">
               <img src='/logo.webp' className='opacity-70 w-5 h-5'/>
               Aura
-              <span className='text-[9px] bg-blue-800/60 rounded-full px-2'>0.4.1</span>
+              <span className='text-[9px] bg-blue-800/60 rounded-full px-2'>0.5.1</span>
             </h1>
             <div className='flex items-center gap-2'>
               <button

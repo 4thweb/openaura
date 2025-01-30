@@ -13,16 +13,16 @@
 
 ## 🚀 Roadmap & Features in Development
 
-- [ ] **Pages Support**: Support for cloudflare page (working).
-- [ ] **Download project as ZIP**: Export your work with ease (working).
-- [x] **AI thinking capabilities**: Enhance decision-making and problem-solving during development (now on beta).
-- [ ] **Persistent chat history**: Remember conversations and context for better continuity.
-- [ ] **Codespace VM-based previews**: Use Codespaces for enhanced project previews.
-- [ ] **Prompt enhancements**: Smarter and more intuitive prompts.
-- [ ] **Git integration**: Push, pull, and manage code directly.
-- [ ] **Error detection in previews**: Spot and debug issues instantly.
-- [ ] **Deploy buttons**: One-click deployment to popular hosting platforms.
-- [ ] **Image-to-website**: Transform design ideas into fully functional web pages.
+- ⬜ **Pages Support**: Support for cloudflare page (working).
+- ⬜ **Download project as ZIP**: Export your work with ease (working).
+- ✅ **AI thinking capabilities**: Enhance decision-making and problem-solving during development (now on beta).
+- ⬜ **Persistent chat history**: Remember conversations and context for better continuity.
+- ⬜ **Codespace VM-based previews**: Use Codespaces for enhanced project previews.
+- ⬜ **Prompt enhancements**: Smarter and more intuitive prompts.
+- ⬜ **Git integration**: Push, pull, and manage code directly.
+- ⬜ **Error detection in previews**: Spot and debug issues instantly.
+- ⬜ **Deploy buttons**: One-click deployment to popular hosting platforms.
+- ⬜ **Image-to-website**: Transform design ideas into fully functional web pages.
 
 ---
 

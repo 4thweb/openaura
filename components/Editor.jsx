@@ -14,8 +14,10 @@ import "prismjs/components/prism-yaml"
 import "prismjs/components/prism-markdown"
 import { Play } from "lucide-react"
 import { useMediaQuery } from "react-responsive"
+import { Copy, Check } from 'lucide-react';
 
 const Editor = ({ env, toggleEditor, setPreview }) => {
+  const [copied, setCopied] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [selectedFile, setSelectedFile] = useState(null)
   const [expandedFolders, setExpandedFolders] = useState(new Set(["/"]))
@@ -151,6 +153,16 @@ const Editor = ({ env, toggleEditor, setPreview }) => {
 
     cancelCreating()
   }
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(content);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
 
   const toggleFolder = (path) => {
     setExpandedFolders((prev) => {
@@ -332,6 +344,15 @@ const Editor = ({ env, toggleEditor, setPreview }) => {
             <div className="flex items-center gap-2">
               {getFileIcon(selectedFile.split("/").pop())}
               {selectedFile.split("/").pop()}
+              <button 
+                onClick={handleCopy}
+                aria-label="Copy code">
+                {copied ? (
+                  <Check size={14} className="text-green-500" />
+                ) : (
+                  <Copy size={14} className="text-gray-300" />
+                )}
+              </button>
             </div>
           ) : (
             "Editor"
